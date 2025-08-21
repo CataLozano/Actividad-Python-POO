@@ -74,4 +74,19 @@ except FileNotFoundError:
 except ZeroDivisionError:   
     print("Error: no se puede dividir por 0")
 finally:
-    print("esto se ejecuta siempre")     
+    print("esto se ejecuta siempre")  
+##############################################################
+
+#EXCEPCIONES PERSONALIZADAS
+
+##############################################################
+class MiExcepcionPersonalizada(Exception):
+    def __init__(self, mensaje, codigo):
+        super().__init__(mensaje)
+        self.codigo = codigo
+
+try:
+    raise MiExcepcionPersonalizada("Error crítico en el sistema", 505)
+except MiExcepcionPersonalizada as e:
+    print(f"Código: {e.codigo} - Mensaje: {e}")
+
